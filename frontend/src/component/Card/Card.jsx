@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 import "./Card.css"
 import Data from './Data';
+import {withRouter} from 'react-router-dom';
+
 
 class Card extends Component{
   state ={
@@ -17,8 +19,19 @@ class Card extends Component{
     .catch(err => console.log(err))
   }
 
+  DeleteDataAPI = (id) => {
+    axios.delete(`http://localhost:3004/delete/${id}`)
+      .then(res => {
+        this.getPostDataAPI()
+      })
+  }
+
   handleDetail = (id) => {
-    this.props.history.push(`/detail-blog/${id}`)
+    this.props.history.push(`/detailBlog/${id}`);
+  }
+
+  handleEdit = (id) => {
+    this.props.history.push(`/editBlog/${id}`);
   }
 
   componentDidMount() {
@@ -26,17 +39,21 @@ class Card extends Component{
   }
   render(){
     return (
-      <div className="card">
-        <div className="card-body">
-          {
-            this.state.post.map(data => {
-              return <Data key={data.id} data={data} detail={this.handleDetail} />
-            })
-          }
+      <Fragment>
+        <h1>ALL Channa</h1>
+        <div className="container">
+          <div className="row">       
+              {
+                this.state.post.map(data => {
+                  return <Data key={data.id} data={data} goDetail={this.handleDetail} goEdit={this.handleEdit} delete={this.DeleteDataAPI} />
+                })
+              }
+          </div>
         </div>
-      </div>
+        
+      </Fragment>
     )
   }
 }
 
-export default Card;
+export default withRouter(Card);

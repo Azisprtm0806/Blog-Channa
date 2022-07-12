@@ -1,3 +1,31 @@
 .card{
-  width: 18rem;
+  width: 20rem;
+  padding-top: 10px;
+  text-align: center;
+  background: #51557E;
+}
+.card-title{
+  padding-bottom: 5px;
+  font-weight: 600;
+  color: #D6D5A8;
+}
+.card-title:hover{
+  cursor: pointer;
+  color: rgb(157, 157, 157);
+}
+.button{
+  padding-top: 20px;
+}
+.button .delete{
+  margin-left: 10px;
+  width: 50px;
+  height: 40px;
+  font-size: small;
+  font-weight: 400;
+  padding: 0 0 0 0;
+}
+h1{
+  text-align: center;
+  font-weight: 400;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

@@ -1,0 +1,11 @@
+.message{
+  font-weight: 600;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: darkcyan;
+  font-size: 30px;
+  font-style: italic;
+}
+label{
+  color: #D6D5A8;
+  font-weight: 500;
+}
